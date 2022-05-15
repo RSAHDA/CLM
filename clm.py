@@ -3,6 +3,13 @@ import sys
 from os.path import exists
 
 
+def checkDependencies():
+    if exists("C:/MinGW") and exists("C:/Program Files (x86)/GnuWin32") and exists("C:/Program Files/CMake") and exists("C:/Program Files/Git"):
+        return True
+    else:
+        return False
+
+
 def installCmakeBuild(location):
     if not exists(location):
         raise FileNotFoundError(f"[*] {location}, doesnt exists.")
