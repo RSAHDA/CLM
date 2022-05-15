@@ -100,14 +100,19 @@ to be able to run CLM.
 """)
 commands_entered = sys.argv
 
-if commands_entered[1] == 'install' and (commands_entered[2] == '--cmake-build-required' or commands_entered[2] == '--cbr'):
-    run(installCmakeBuild, commands_entered[3])
-elif commands_entered[1] == 'init':
-    run(init)
-elif commands_entered[1] == 'install' and (commands_entered[2] == '--already-built' or commands_entered[2] == '--ab'):
-    run(installWithoutCmakeBuild, commands_entered[3])
-else:
-    command = ''
-    for i in commands_entered:
-        command += " " + i
-    print(f"[*] I don't know what '{command}' means.")
+try:
+    if commands_entered[1] == 'install' and (commands_entered[2] == '--cmake-build-required' or commands_entered[2] == '--cbr'):
+        run(installCmakeBuild, commands_entered[3])
+    elif commands_entered[1] == 'init':
+        run(init)
+    elif commands_entered[1] == 'install' and (commands_entered[2] == '--already-built' or commands_entered[2] == '--ab'):
+        run(installWithoutCmakeBuild, commands_entered[3])
+    else:
+        command = ''
+        for i in commands_entered:
+            command += " " + i
+        print(f"[*] I don't know what '{command}' means.")
+except:
+    print("[*] I don't know what you want to do, here is your list of commands:\n"
+          "--- install [--cmake-build-required][--cbr] [--already-built][--ab] (abs dir of src)   ->   Installs source library into MinGW compiler\n"
+          "--- init  ->   Set's up you CWD (current working directory) for C++/C usage.\n")
