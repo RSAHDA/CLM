@@ -4,7 +4,7 @@ from os.path import exists
 
 
 def checkDependencies():
-    if exists("C:/MinGW") and exists("C:/Program Files (x86)/GnuWin32") and exists("C:/Program Files/CMake") and exists("C:/Program Files/Git"):
+    if exists("C:/MinGW") and exists("C:/Program Files (x86)/GnuWin32") and exists("C:/Program Files/CMake"):
         return True
     else:
         return False
@@ -76,6 +76,12 @@ def run(function, arg=None):
         exit(0)
 
 
+if not checkDependencies():
+    print("""[*] Not all dependencies are installed, you need to install:
+MinGW: https://sourceforge.net/projects/mingw/
+Gnu-Make: http://gnuwin32.sourceforge.net/packages/make.htm
+Cmake: https://cmake.org/download/
+""")
 commands_entered = sys.argv
 
 if commands_entered[1] == 'install' and (commands_entered[2] == '--cmake-build-required' or commands_entered[2] == '--cbr'):
