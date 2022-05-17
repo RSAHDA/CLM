@@ -1,0 +1,8 @@
+C:/Users/Yaten/PycharmProjects/clm/CLM/final/lib/libglfw3.a
+C:/Users/Yaten/PycharmProjects/clm/CLM/final/include/GLFW/glfw3.h
+C:/Users/Yaten/PycharmProjects/clm/CLM/final/include/GLFW/glfw3native.h
+C:/Users/Yaten/PycharmProjects/clm/CLM/final/lib/cmake/glfw3/glfw3Config.cmake
+C:/Users/Yaten/PycharmProjects/clm/CLM/final/lib/cmake/glfw3/glfw3ConfigVersion.cmake
+C:/Users/Yaten/PycharmProjects/clm/CLM/final/lib/cmake/glfw3/glfw3Targets.cmake
+C:/Users/Yaten/PycharmProjects/clm/CLM/final/lib/cmake/glfw3/glfw3Targets-noconfig.cmake
+C:/Users/Yaten/PycharmProjects/clm/CLM/final/lib/pkgconfig/glfw3.pc
