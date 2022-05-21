@@ -186,12 +186,8 @@ def run(function, arg=None):
 
 
 if not checkDependencies():
-    print("""[*] Not all dependencies are installed, you need to install:
-MinGW: https://sourceforge.net/projects/mingw/
-Gnu-Make: http://gnuwin32.sourceforge.net/packages/make.htm
-Cmake: https://cmake.org/download/
-to be able to run CLM.
-""")
+    print("""[*] Seems like you haven't installed MinGW, please install it before using CLM.
+MinGW: https://sourceforge.net/projects/mingw/""")
 commands_entered = sys.argv
 
 try:
