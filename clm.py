@@ -4,7 +4,8 @@ from os.path import exists
 import shutil
 
 
-INSTALLED_PATH = "C:/Users/Yaten/PycharmProjects/clm/CLM/"
+INSTALLED_PATH = os.path.dirname(os.path.realpath(__file__))
+
 cmake = f"{INSTALLED_PATH}deps/cmake/bin/cmake.exe"
 make = f"{INSTALLED_PATH}deps/make/bin/make.exe"
 
@@ -216,4 +217,4 @@ except:
           "--- install [--cmake-build-required][--cbr] [--already-built][--ab] (abs dir of src)   ->   Installs source library into MinGW compiler\n"
           "--- init  ->   Set's up you CWD (current working directory) for C++/C usage.\n"
           "--- uninstall (lib-name)   ->   Uninstalls libraries from MinGW compiler.\n"
-          "--- ls   ->   Lists out all libraries currently installed on your MinGW compiler\n")
+          "--- ls   ->   Lists out all libraries currently installed on MinGW compiler\n")
