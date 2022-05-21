@@ -43,10 +43,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\CMake\bin\cmake.exe"
+CMAKE_COMMAND = C:\Users\Yaten\PycharmProjects\clm\CLM\deps\cmake\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
+RM = C:\Users\Yaten\PycharmProjects\clm\CLM\deps\cmake\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -66,7 +66,7 @@ include CMakeFiles/uninstall.dir/compiler_depend.make
 include CMakeFiles/uninstall.dir/progress.make
 
 CMakeFiles/uninstall:
-	"C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/Yaten/PycharmProjects/clm/CLM/builds/cmake_uninstall.cmake
+	C:\Users\Yaten\PycharmProjects\clm\CLM\deps\cmake\bin\cmake.exe -P C:/Users/Yaten/PycharmProjects/clm/CLM/builds/cmake_uninstall.cmake
 
 uninstall: CMakeFiles/uninstall
 uninstall: CMakeFiles/uninstall.dir/build.make

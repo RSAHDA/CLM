@@ -1,1 +1,1 @@
-glfw3 C:/Users/Yaten/PycharmProjects/clm/CLM/GLFW C:/Users/Yaten/PycharmProjects/clm/CLM/cmake C:/Users/Yaten/PycharmProjects/clm/CLM/libglfw3.a C:/Users/Yaten/PycharmProjects/clm/CLM/pkgconfig
+glfw3 C:/MinGW/include/GLFW C:/MinGW/lib/cmake C:/MinGW/lib/libglfw3.a C:/MinGW/lib/pkgconfig

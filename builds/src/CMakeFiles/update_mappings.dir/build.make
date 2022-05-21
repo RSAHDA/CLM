@@ -43,10 +43,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\CMake\bin\cmake.exe"
+CMAKE_COMMAND = C:\Users\Yaten\PycharmProjects\clm\CLM\deps\cmake\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
+RM = C:\Users\Yaten\PycharmProjects\clm\CLM\deps\cmake\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -67,7 +67,7 @@ include src/CMakeFiles/update_mappings.dir/progress.make
 
 src/CMakeFiles/update_mappings:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=C:\Users\Yaten\PycharmProjects\clm\CLM\builds\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Updating gamepad mappings from upstream repository"
-	cd /d C:\Users\Yaten\Downloads\glfw-3.3.7\src && "C:\Program Files\CMake\bin\cmake.exe" -P C:/Users/Yaten/Downloads/glfw-3.3.7/CMake/GenerateMappings.cmake mappings.h.in mappings.h
+	cd /d C:\Users\Yaten\Downloads\glfw-3.3.7\src && C:\Users\Yaten\PycharmProjects\clm\CLM\deps\cmake\bin\cmake.exe -P C:/Users/Yaten/Downloads/glfw-3.3.7/CMake/GenerateMappings.cmake mappings.h.in mappings.h
 
 update_mappings: src/CMakeFiles/update_mappings
 update_mappings: src/CMakeFiles/update_mappings.dir/build.make
