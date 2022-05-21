@@ -3,8 +3,8 @@ import sys
 from os.path import exists
 import shutil
 
-
-INSTALLED_PATH = os.path.dirname(os.path.realpath(__file__))
+# please change this to location path, and run .\updateEXE.bat before running CLM.
+INSTALLED_PATH = "C:/Users/Yaten/PycharmProjects/clm/CLM"
 
 cmake = f"{INSTALLED_PATH}/deps/cmake/bin/cmake.exe"
 make = f"{INSTALLED_PATH}/deps/make/bin/make.exe"
@@ -22,11 +22,10 @@ def installCmakeBuild(location):
         print(f"[*] {location}, doesnt exists.")
     print("[*] ---- STARTING DOWNLOAD: ---- ")
     print("[*] BUILDING LIBRARY...")
-    print(f'{cmake} -S {location} -B {INSTALLED_PATH}/builds -G "MinGW Makefiles" -D CMAKE_INSTALL_PREFIX="{INSTALLED_PATH}/final"')
     os.system(f'{cmake} -S {location} -B {INSTALLED_PATH}/builds -G "MinGW Makefiles" -D CMAKE_INSTALL_PREFIX="{INSTALLED_PATH}/final"')
     print("[*] Build Complete.")
     print("[*] START MAKEFILE GENERATION...")
-    os.system(f'cd builds & {make} & {make} install')
+    os.system(f'cd {INSTALLED_PATH}/builds & {make} & {make} install')
     print("[*] Generation Complete.")
     print("[*] ---- DOWNLOAD COMPLETE: ---- ")
     print(f"[*] INSTALLING {location}")
@@ -65,7 +64,7 @@ def init():
     main = input("[*] MAIN EXECUTABLE NAME: ")
     libraries = input(
         "[*] Dependencies {FORMAT: -l(library-name[version/bits])} & SPACE TO SEPARATE MULTIPLE (BLANK FOR NONE): ")
-    cwd = input("[*] ABS CWD (CURRENT WORKING DIRECTORY): ")
+    cwd = os.getcwd()
     os.system(f"cd {cwd} & mkdir executable")
     compile_file = open(f"{cwd}/compile.bat", 'w')
     compiler_name = ""
@@ -103,6 +102,7 @@ int main() {
 // A simple Hello World program.
 """)
         main_file.close()
+        print("[*] INITIALIZATION SUCCESSFUL")
 
 
 def installWithoutCmakeBuild(location):
