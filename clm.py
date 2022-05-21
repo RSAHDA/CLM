@@ -6,8 +6,8 @@ import shutil
 
 INSTALLED_PATH = os.path.dirname(os.path.realpath(__file__))
 
-cmake = f"{INSTALLED_PATH}deps/cmake/bin/cmake.exe"
-make = f"{INSTALLED_PATH}deps/make/bin/make.exe"
+cmake = f"{INSTALLED_PATH}/deps/cmake/bin/cmake.exe"
+make = f"{INSTALLED_PATH}/deps/make/bin/make.exe"
 
 
 def checkDependencies():
@@ -22,8 +22,8 @@ def installCmakeBuild(location):
         print(f"[*] {location}, doesnt exists.")
     print("[*] ---- STARTING DOWNLOAD: ---- ")
     print("[*] BUILDING LIBRARY...")
-    os.system(
-        f'{cmake} -S {location} -B {INSTALLED_PATH}/builds -G "MinGW Makefiles" -D CMAKE_INSTALL_PREFIX="{INSTALLED_PATH}/final"')
+    print(f'{cmake} -S {location} -B {INSTALLED_PATH}/builds -G "MinGW Makefiles" -D CMAKE_INSTALL_PREFIX="{INSTALLED_PATH}/final"')
+    os.system(f'{cmake} -S {location} -B {INSTALLED_PATH}/builds -G "MinGW Makefiles" -D CMAKE_INSTALL_PREFIX="{INSTALLED_PATH}/final"')
     print("[*] Build Complete.")
     print("[*] START MAKEFILE GENERATION...")
     os.system(f'cd builds & {make} & {make} install')
@@ -34,11 +34,11 @@ def installCmakeBuild(location):
     os.system(f"robocopy {INSTALLED_PATH}/final/lib C:/MinGW/lib /e /ndl")
     os.system(f"cd {INSTALLED_PATH}/builds & type nul > .gitignore")
     os.system(f"cd {INSTALLED_PATH}/final & type nul > .gitignore")
-    libs = open(f"{INSTALLED_PATH}installed.txt", 'a+')
+    libs = open(f"{INSTALLED_PATH}/installed.txt", 'a+')
 
     name = input("[*] What would you like to name this library?> ")
 
-    installed = open(f"{INSTALLED_PATH}installed.txt", 'r')
+    installed = open(f"{INSTALLED_PATH}/installed.txt", 'r')
     for i in installed.readlines():
         if name in i:
             print(
@@ -113,11 +113,11 @@ def installWithoutCmakeBuild(location):
     if exists(f'{location}/bin'):
         os.system(f'robocopy {location}/bin C:/MinGW/bin /e /ndl')
 
-    libs = open(f"{INSTALLED_PATH}installed.txt", 'a+')
+    libs = open(f"{INSTALLED_PATH}/installed.txt", 'a+')
 
     name = input("[*] What would you like to name this library?> ")
 
-    installed = open(f"{INSTALLED_PATH}installed.txt", 'r')
+    installed = open(f"{INSTALLED_PATH}/installed.txt", 'r')
     for i in installed.readlines():
         if name in i:
             print(
@@ -142,11 +142,11 @@ def installWithoutCmakeBuild(location):
 
 
 def uninstall(lib):
-    file = open(f"{INSTALLED_PATH}installed.txt")
+    file = open(f"{INSTALLED_PATH}/installed.txt")
     data = file.readlines()
     loop = data
     file.close()
-    write_to = open(f'{INSTALLED_PATH}installed.txt', 'w')
+    write_to = open(f'{INSTALLED_PATH}/installed.txt', 'w')
     counter = 0
     for line in loop:
         if line.split()[0] == lib:
@@ -168,7 +168,7 @@ def uninstall(lib):
 
 
 def list_libs():
-    libs = open(f"{INSTALLED_PATH}installed.txt", "r")
+    libs = open(f"{INSTALLED_PATH}/installed.txt", "r")
     for line in libs.readlines():
         print(line.split()[0])
     libs.close()
@@ -191,13 +191,11 @@ MinGW: https://sourceforge.net/projects/mingw/""")
 commands_entered = sys.argv
 
 try:
-    if commands_entered[1] == 'install' and (
-            commands_entered[2] == '--cmake-build-required' or commands_entered[2] == '--cbr'):
+    if commands_entered[1] == 'install' and (commands_entered[2] == '--cmake-build-required' or commands_entered[2] == '--cbr'):
         run(installCmakeBuild, commands_entered[3])
     elif commands_entered[1] == 'init':
         run(init)
-    elif commands_entered[1] == 'install' and (
-            commands_entered[2] == '--already-built' or commands_entered[2] == '--ab'):
+    elif commands_entered[1] == 'install' and (commands_entered[2] == '--already-built' or commands_entered[2] == '--ab'):
         run(installWithoutCmakeBuild, commands_entered[3])
     elif commands_entered[1] == 'uninstall':
         run(uninstall, commands_entered[2])
@@ -207,10 +205,10 @@ try:
         command = ''
         for i in commands_entered:
             command += " " + i
-        print(f"[*] I don't know what '{command}' means.")
-except:
-    print("[*] I don't know what you want to do, here is your list of commands:\n"
-          "--- install [--cmake-build-required][--cbr] [--already-built][--ab] (abs dir of src)   ->   Installs source library into MinGW compiler\n"
-          "--- init  ->   Set's up you CWD (current working directory) for C++/C usage.\n"
-          "--- uninstall (lib-name)   ->   Uninstalls libraries from MinGW compiler.\n"
-          "--- ls   ->   Lists out all libraries currently installed on MinGW compiler\n")
+        print("[*] I don't know what you want to do, here is your list of commands:\n"
+              "--- install [--cmake-build-required][--cbr] [--already-built][--ab] (abs dir of src)   ->   Installs source library into MinGW compiler\n"
+              "--- init  ->   Set's up you CWD (current working directory) for C++/C usage.\n"
+              "--- uninstall (lib-name)   ->   Uninstalls libraries from MinGW compiler.\n"
+              "--- ls   ->   Lists out all libraries currently installed on MinGW compiler\n")
+except KeyboardInterrupt as e:
+    pass
